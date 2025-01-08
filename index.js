@@ -38,9 +38,6 @@ app.use((req, res, next) => {
 async function getLyrics(lyricsUrl) {
   const lyricsPageData = await axios.get(lyricsUrl, {
     headers: headers,
-    validateStatus: function (status) {
-      return status = 304;
-    },
   });
   
   const $ = cheerio.load(lyricsPageData.data);
