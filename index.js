@@ -8,7 +8,7 @@ const GENIUS_ACCESS_TOKEN = 'ohCXKqz-spvgUf4Rq1lGNdJM-Lp2--eetb0VaR5WzROO4rxKFMM
 
 let serverStartTime;
 
-// Custom headers configuration
+
 const headers = {
     "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
     "accept-language": "en-US,en;q=0.9",
@@ -26,7 +26,7 @@ const headers = {
     "cookie": "_genius_ab_test_cohort=13"
   };
 
-// Middleware to record server start time
+
 app.use((req, res, next) => {
   if (!serverStartTime) {
     serverStartTime = new Date();
@@ -34,7 +34,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Updated getLyrics function with custom headers
+
 async function getLyrics(lyricsUrl) {
   const lyricsPageData = await axios.get(lyricsUrl, {
     headers: headers,
@@ -78,7 +78,7 @@ app.get('/', (req, res) => {
   res.status(200).send(`Welcome to the API. Uptime: ${uptimeInSeconds} seconds`);
 });
 
-// Updated lyrics search endpoint with custom headers
+
 app.get('/lyrics', async (req, res) => {
   try {
     const { songname } = req.query;
